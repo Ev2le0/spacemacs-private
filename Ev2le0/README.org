@@ -5,8 +5,8 @@
 # under ":spacetools.spacedoc.config/valid-tags" section.
 #+TAGS: layer|web service
 
-# The maximum height of the logo should be 200 pixels.
-[[img/Ev2le0.png]]
+# # The maximum height of the logo should be 200 pixels.
+# [[img/Ev2le0.png]]
 
 # TOC links should be GitHub style anchors.
 * Table of Contents                                        :TOC_4_gh:noexport:
