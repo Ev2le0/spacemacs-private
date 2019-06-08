@@ -30,7 +30,7 @@
 ;;; Code:
 
 (defconst Ev2le0-packages
-  '()
+  '(company)
   "The list of Lisp packages required by the Ev2le0 layer.
 
 Each entry is either:
@@ -59,4 +59,7 @@ Each entry is either:
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
 
+(defun Ev2le0/post-init-company()
+  (setq company-minimum-prefix-length 1))
 ;;; packages.el ends here
+ 

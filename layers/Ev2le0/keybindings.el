@@ -10,3 +10,5 @@
 ;;; License: GPLv3
 
 (global-set-key (kbd "M-s o") 'occur-dwim)
+(global-set-key "\C-s" 'swiper)
+
