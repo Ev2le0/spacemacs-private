@@ -9,7 +9,7 @@
 ;;
 ;;; License: GPLv3
 (global-linum-mode t)
-
+(global-prettify-symbols-mode 1)
 (defun occur-dwim ()
   "Call `occur' with a sane default."
   (interactive)
