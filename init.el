@@ -37,12 +37,27 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-snippets-in-popup t
+                      :disabled-for org markdown)
      better-defaults
+     ranger
      emacs-lisp
-     git
+     (git :variables
+                  git-magit-status-fullscreen t
+                  magit-push-always-verify nil
+                  magit-save-repository-buffers 'dontask
+                  magit-revert-buffers 'silent
+                  magit-refs-show-commit-count 'all
+                  magit-revision-show-gravatars nil)
+     (ibuffer :variables ibuffer-group-buffers-by 'projects)
      markdown
      org
+     (python :variables python-test-runner '(nose pytest))
+     (gtags :disabled-for emacs-lisp python shell-scripts)
+     (shell :variables shell-default-shell 'ansi-term
+            shell-default-term-shell "/bin/zsh")
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -50,7 +65,18 @@ values."
                         ispell-program-name "aspell"
                         ispell-dictionary "american"
                         spell-checking-enable-by-default nil)
-     syntax-checking
+     emacs-lisp
+     (syntax-checking :variables
+                      syntax-checking-enable-by-default nil
+                      syntax-checking-enable-tooltips nil)
+     (chinese :packages youdao-dictionary fcitx
+              :variables chinese-enable-fcitx nil
+              chinese-enable-youdao-dict t)
+     shell-scripts
+     (go :variables
+         go-tab-width 4
+         go-use-gometalinter t
+         gofmt-command "goimports")
      Ev2le0
      ;; version-control
      )
@@ -304,10 +330,10 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq configuration-layer-elpa-archives
-    '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-      ("org-cn"   . "http://elpa.emacs-china.org/org/")
-      ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+  ;;(setq configuration-layer-elpa-archives
+    ;;'(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+     ;; ("org-cn"   . "http://elpa.emacs-china.org/org/")
+      ;;("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
 
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
@@ -321,7 +347,6 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq powerline-default-separator 'arrow)
-  (require 'org-tempo)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
