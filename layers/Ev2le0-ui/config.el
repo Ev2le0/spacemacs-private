@@ -8,4 +8,4 @@
 ;; This file is not part of GNU Emacs.
 ;;
 ;;; License: GPLv3
-(add-hook 'org-mode-hook (lambda () (spacemacs/toggle-line-numbers)) 'append)
+(setq spacemacs-show-trailing-whitespace nil)
