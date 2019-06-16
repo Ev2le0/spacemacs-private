@@ -9,3 +9,4 @@
 ;;
 ;;; License: GPLv3
 (add-hook 'go-mode-hook (lambda () (spacemacs/toggle-line-numbers)) 'append)
+
