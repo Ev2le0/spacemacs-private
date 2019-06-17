@@ -32,33 +32,8 @@
 (defconst Ev2le0-org-packages
   '(
 	(org :location built-in)
-	)
-  "The list of Lisp packages required by the Ev2le0 layer.
-
-Each entry is either:
-
-1. A symbol, which is interpreted as a package to be installed, or
-
-2. A list of the form (PACKAGE KEYS...), where PACKAGE is the
-    name of the package to be installed or loaded, and KEYS are
-    any number of keyword-value-pairs.
-
-    The following keys are accepted:
-
-    - :excluded (t or nil): Prevent the package from being loaded
-      if value is non-nil
-
-    - :location: Specify a custom installation location.
-      The following values are legal:
-
-      - The symbol `elpa' (default) means PACKAGE will be
-        installed using the Emacs package manager.
-
-      - The symbol `local' directs Spacemacs to load the file at
-        `./local/PACKAGE/PACKAGE.el'
-
-      - A list beginning with the symbol `recipe' is a melpa
-        recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
+  deft
+	))
 
 (defun Ev2le0-org/post-init-org()
   (with-eval-after-load 'org
@@ -68,5 +43,11 @@ Each entry is either:
 						)
   )
 
+(defun Ev2le0-org/post-init-deft()
+  (progn
+    (setq deft-use-filter-string-for-filename t)
+    (setq deft-recursive t)
+    (setq deft-extension "org")
+    (setq deft-directory deft-dir)))
 ;;; packages.el ends here
 
