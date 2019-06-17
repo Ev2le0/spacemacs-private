@@ -29,7 +29,7 @@
 
 ;;; Code:
 
-(defconst Ev2le0-programming-packages
+(defconst Ev2le0-ui-packages
   '(
   )
 )

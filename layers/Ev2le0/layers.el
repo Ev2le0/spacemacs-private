@@ -11,6 +11,7 @@
 
 
 (configuration-layer/declare-layers '(
+                                      Ev2le0-ui
                                       Ev2le0-programming
                                       Ev2le0-org
 									  Ev2le0-better-defaults

@@ -40,8 +40,8 @@
 		(progn 
 		  (require 'org-tempo)
 		  )
-						)
   )
+)
 
 (defun Ev2le0-org/post-init-deft()
   (progn
