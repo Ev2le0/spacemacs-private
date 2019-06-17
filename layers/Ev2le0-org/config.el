@@ -9,3 +9,6 @@
 ;;
 ;;; License: GPLv3
 (add-hook 'org-mode-hook (lambda () (spacemacs/toggle-line-numbers)) 'append)
+(defvar org-agenda-dir "~/org-notes"
+  "gtd org files location")
+

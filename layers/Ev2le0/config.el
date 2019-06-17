@@ -9,6 +9,7 @@
 ;;
 ;;; License: GPLv3
 ;;(global-linum-mode t)
+(setq evil-want-fine-undo t)
 (global-prettify-symbols-mode 1)
 (defun occur-dwim ()
   "Call `occur' with a sane default."

@@ -37,9 +37,38 @@
 
 (defun Ev2le0-org/post-init-org()
   (with-eval-after-load 'org
-		(progn 
-		  (require 'org-tempo)
-		  )
+	(progn 
+	  (require 'org-tempo)
+	  (setq org-startup-indented t)
+	  ;; define the refile targets
+      (setq org-agenda-file-study (expand-file-name "study.org" org-agenda-dir))
+      (setq org-agenda-file-work (expand-file-name "work.org" org-agenda-dir))
+      (setq org-agenda-file-life (expand-file-name "life.org" org-agenda-dir))
+      (setq org-agenda-file-journal (expand-file-name "journal.org" org-agenda-dir))
+      (setq org-agenda-files (list org-agenda-dir))
+	     (setq org-capture-templates
+            '(("l" "life" entry (file+headline org-agenda-file-life "生活")
+               "* %?\n  %i\n %U"
+               :empty-lines 1)
+              ("s" "study" entry (file+headline org-agenda-file-study "学习")
+               "* %?\n  %i\n %U"
+               :empty-lines 1)
+              ("w" "work" entry (file+headline org-agenda-file-work "工作")
+               "* TODO [#A] %?\n  %i\n %U"
+               :empty-lines 1)
+              ("j" "Journal Entry" entry (file+datetree org-agenda-file-journal)
+               "* %?"
+               :empty-lines 1)))
+      ;;An entry without a cookie is treated just like priority ' B '.
+      ;;So when create new task, they are default 重要且紧急
+      (setq org-agenda-custom-commands
+            '(
+              ("w" . "日程查看")
+              ("wa" "重要且紧急的任务" tags-todo "+PRIORITY=\"A\"")
+              ("wb" "重要且不紧急的任务" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
+              ("wc" "不重要且不紧急的任务" tags-todo "+PRIORITY=\"C\"")
+                ))
+	  )
   )
 )
 
