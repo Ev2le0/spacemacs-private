@@ -68,6 +68,18 @@
               ("wb" "重要且不紧急的任务" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
               ("wc" "不重要且不紧急的任务" tags-todo "+PRIORITY=\"C\"")
                 ))
+      (setq org-todo-keywords
+            (quote ((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d!/!)")
+                    (sequence "WAITING(w@/!)" "SOMEDAY(S)" "|" "CANCELLED(c@/!)"))))
+      ;; 打开org-indent mode
+      (setq org-startup-indented t)
+
+      ;; 设置bullet list
+      (setq org-bullets-bullet-list '("☰" "☷" "☯" "☭")) 
+      ;; 配置归档文件的名称和Headline格式
+      (setq org-archive-location "%s_archive::date-tree")
+      (setq truncate-lines nil)
+      (setq org-src-fontify-natively t)
 	  )
   )
 )

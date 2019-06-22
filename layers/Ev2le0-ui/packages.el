@@ -31,7 +31,16 @@
 
 (defconst Ev2le0-ui-packages
   '(
+    all-the-icons
   )
 )
+(defun Ev2le0-ui/post-init-all-the-icons()
+	 (use-package 
+	   :config
+        (setq all-the-icons-color-icons t)
+        (setq all-the-icons-fro-buffer t)
+	   )
+)
+
 ;;; packages.el ends here
 
